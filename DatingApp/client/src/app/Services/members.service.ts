@@ -5,10 +5,11 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { UserParams } from '../models/UserParams';
-import { User } from '../models/user';
+
+import { User } from '../models/User';
 import { AccountService } from './account.service';
 import { getPaginatedResult, getPaginationHeaders } from './PaginationHelper';
+import { UserParams } from '../models/UserParams';
 
 
 @Injectable({
@@ -54,7 +55,7 @@ memberCache = new Map<string , PaginatedResult<Member[]>>();
     params = params.append('maxAge', userParams.maxAge.toString());
     params = params.append('gender', userParams.gender);
     params = params.append('orderBy', userParams.orderBy);
-
+    params = params.append('byUsername', userParams.byUsername);
     return getPaginatedResult<Member[]>(`${this.baseUrl}users`, params, this.http)
     .pipe(
       tap(res => this.memberCache.set(cacheKey , res))

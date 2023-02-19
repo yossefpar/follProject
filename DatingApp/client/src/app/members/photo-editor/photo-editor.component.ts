@@ -6,7 +6,7 @@ import { environment } from './../../../environments/environment';
 import { Component, OnInit, Input } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { Member } from 'src/app/models/member';
-import { User } from 'src/app/models/user';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-photo-editor',

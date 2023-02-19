@@ -23,15 +23,20 @@
       </select>
     </div>
 
+    <div class="from-group px-3">
+      <label>Search by name: </label>
+      <input type="text" style="width: 130px;" class="form-control ml-1" name="byUsername" [(ngModel)]="userParams.byUsername">
+    </div>
+
     <button type="submit" class="btn btn-primary ml-1">Apply Filters </button>
     <button (click)="resetFilters()" type="button" class="btn btn-info ml-1">Reset Filters </button>
 
     <div class="col">
-      <div class="btn-group float-right">
-        <button type="button" class="btn btn-primary" name="orderBy" btnRadio="lastActiv" (click)="loadMembers()"
+      <div class="btn-group float-right mt-3">
+        <button type="button" class="btn btn-primary ml-1" name="orderBy" btnRadio="lastActiv" (click)="loadMembers()"
         [(ngModel)]="userParams.orderBy"> Last Active </button>
-        <button type="button" class="btn btn-primary" name="orderBy" btnRadio="create" (click)="loadMembers()"
-        [(ngModel)]="userParams.orderBy"> Newest Members </button>
+        <button type="button" class="btn btn-primary ml-1" name="orderBy" btnRadio="create" (click)="loadMembers()"
+        [(ngModel)]="userParams.orderBy"> New Members </button>
       </div>
     </div>
   </form>

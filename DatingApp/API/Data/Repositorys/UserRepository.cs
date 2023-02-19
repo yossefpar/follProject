@@ -49,6 +49,11 @@ namespace API.Data.Repositorys
                "created" => query.OrderByDescending(u => u.Created),
                _ => query.OrderByDescending(x => x.LastActive),
            };
+
+           if (userParams.ByUsername != null)
+           {
+                query = query.Where(x => x.UserName == userParams.ByUsername.ToLower());
+           }
             return await PagedList<MemberDto>.CreateAsync(
                 query.ProjectTo<MemberDto>(_mapper.ConfigurationProvider).AsNoTracking(),
                  userParams.PageNumber,
